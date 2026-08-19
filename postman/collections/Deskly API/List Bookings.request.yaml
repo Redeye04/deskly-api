@@ -1,0 +1,8 @@
+$kind: http-request
+name: List Bookings
+method: GET
+url: 'http://localhost:4000/bookings'
+order: 3000
+headers:
+  - key: X-API-Key
+    value: demo-key
