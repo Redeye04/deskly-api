@@ -15,7 +15,36 @@ paths:
           schema:
             type: string
           example: demo-key
-      responses: {}
+      responses:
+        '200':
+          description: Successfully retrieved list of desks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "desk_123"
+                    name:
+                      type: string
+                      example: "Standing Desk A1"
+                    status:
+                      type: string
+                      enum: [available, occupied, reserved]
+                      example: "available"
+        '401':
+          description: Unauthorized - Invalid or missing X-API-Key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid API key"
   '/desks/{deskId}':
     get:
       summary: Get Desk By Id
@@ -25,7 +54,36 @@ paths:
           schema:
             type: string
           example: demo-key
-      responses: {}
+      responses:
+        '200':
+          description: Successfully retrieved list of desks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "desk_123"
+                    name:
+                      type: string
+                      example: "Standing Desk A1"
+                    status:
+                      type: string
+                      enum: [available, occupied, reserved]
+                      example: "available"
+        '401':
+          description: Unauthorized - Invalid or missing X-API-Key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid API key"
     parameters:
       - name: deskId
         in: path
@@ -42,7 +100,36 @@ paths:
           schema:
             type: string
           example: demo-key
-      responses: {}
+      responses:
+        '200':
+          description: Successfully retrieved list of desks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "desk_123"
+                    name:
+                      type: string
+                      example: "Standing Desk A1"
+                    status:
+                      type: string
+                      enum: [available, occupied, reserved]
+                      example: "available"
+        '401':
+          description: Unauthorized - Invalid or missing X-API-Key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid API key"
     post:
       summary: Create Booking
       parameters:
@@ -51,7 +138,36 @@ paths:
           schema:
             type: string
           example: demo-key
-      responses: {}
+      responses:
+        '200':
+          description: Successfully retrieved list of desks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "desk_123"
+                    name:
+                      type: string
+                      example: "Standing Desk A1"
+                    status:
+                      type: string
+                      enum: [available, occupied, reserved]
+                      example: "available"
+        '401':
+          description: Unauthorized - Invalid or missing X-API-Key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid API key"
       requestBody:
         content:
           application/json:
@@ -79,7 +195,36 @@ paths:
           schema:
             type: string
           example: demo-key
-      responses: {}
+      responses:
+        '200':
+          description: Successfully retrieved list of desks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "desk_123"
+                    name:
+                      type: string
+                      example: "Standing Desk A1"
+                    status:
+                      type: string
+                      enum: [available, occupied, reserved]
+                      example: "available"
+        '401':
+          description: Unauthorized - Invalid or missing X-API-Key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid API key"
     parameters:
       - name: bookingId
         in: path
@@ -95,4 +240,33 @@ paths:
           schema:
             type: string
           example: demo-key
-      responses: {}
+      responses:
+        '200':
+          description: Successfully retrieved list of desks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "desk_123"
+                    name:
+                      type: string
+                      example: "Standing Desk A1"
+                    status:
+                      type: string
+                      enum: [available, occupied, reserved]
+                      example: "available"
+        '401':
+          description: Unauthorized - Invalid or missing X-API-Key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid API key"
