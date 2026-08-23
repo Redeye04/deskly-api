@@ -1,0 +1,98 @@
+openapi: 3.0.0
+info:
+  title: Deskly API
+  version: 1.0.0
+  description: ''
+servers:
+  - url: 'http://localhost:4000'
+paths:
+  /desks:
+    get:
+      summary: List Desks
+      parameters:
+        - name: X-API-Key
+          in: header
+          schema:
+            type: string
+          example: demo-key
+      responses: {}
+  '/desks/{deskId}':
+    get:
+      summary: Get Desk By Id
+      parameters:
+        - name: X-API-Key
+          in: header
+          schema:
+            type: string
+          example: demo-key
+      responses: {}
+    parameters:
+      - name: deskId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: desk-1
+  /bookings:
+    get:
+      summary: List Bookings
+      parameters:
+        - name: X-API-Key
+          in: header
+          schema:
+            type: string
+          example: demo-key
+      responses: {}
+    post:
+      summary: Create Booking
+      parameters:
+        - name: X-API-Key
+          in: header
+          schema:
+            type: string
+          example: demo-key
+      responses: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deskId:
+                  type: string
+                date:
+                  type: string
+                  format: date
+                bookedBy:
+                  type: string
+                  format: email
+            example:
+              deskId: desk-2
+              date: '2026-08-20'
+              bookedBy: alex@example.com
+  '/bookings/{bookingId}':
+    get:
+      summary: Get Booking By Id
+      parameters:
+        - name: X-API-Key
+          in: header
+          schema:
+            type: string
+          example: demo-key
+      responses: {}
+    parameters:
+      - name: bookingId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: bkg_seed01
+    delete:
+      summary: Delete Booking
+      parameters:
+        - name: X-API-Key
+          in: header
+          schema:
+            type: string
+          example: demo-key
+      responses: {}

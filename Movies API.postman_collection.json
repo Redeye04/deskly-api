@@ -1,0 +1,419 @@
+{
+  "info": {
+    "_postman_id": "5216e34d-8ca6-4a2c-905d-158f0e8d51d8",
+    "name": "Movies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46168513",
+    "_collection_link": "https://go.postman.co/collection/46168513-5216e34d-8ca6-4a2c-905d-158f0e8d51d8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "List Animation Movies",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Content-Type includes application/json', function () {",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});",
+              "",
+              "pm.test('Response body is an array with required movie fields', function () {",
+              "    const data = pm.response.json();",
+              "",
+              "    pm.expect(data).to.be.an('array');",
+              "",
+              "    data.forEach((item) => {",
+              "        pm.expect(item).to.have.property('id');",
+              "        pm.expect(item.id).to.be.a('number');",
+              "",
+              "        pm.expect(item).to.have.property('title');",
+              "        pm.expect(item.title).to.be.a('string');",
+              "",
+              "        pm.expect(item).to.have.property('posterURL');",
+              "        pm.expect(item.posterURL).to.be.a('string');",
+              "",
+              "        pm.expect(item).to.have.property('imdbId');",
+              "        pm.expect(item.imdbId).to.be.a('string');",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.sampleapis.com/movies/animation",
+          "protocol": "https",
+          "host": [
+            "api",
+            "sampleapis",
+            "com"
+          ],
+          "path": [
+            "movies",
+            "animation"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "List Animation Movies",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.sampleapis.com/movies/animation",
+              "protocol": "https",
+              "host": [
+                "api",
+                "sampleapis",
+                "com"
+              ],
+              "path": [
+                "movies",
+                "animation"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "date",
+              "value": "Wed, 19 Aug 2026 17:14:40 GMT"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "server",
+              "value": "cloudflare"
+            },
+            {
+              "key": "nel",
+              "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+            },
+            {
+              "key": "ratelimit-policy",
+              "value": "5000;w=900"
+            },
+            {
+              "key": "ratelimit-limit",
+              "value": "5000"
+            },
+            {
+              "key": "ratelimit-remaining",
+              "value": "4999"
+            },
+            {
+              "key": "ratelimit-reset",
+              "value": "900"
+            },
+            {
+              "key": "cross-origin-opener-policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "cross-origin-resource-policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "origin-agent-cluster",
+              "value": "?1"
+            },
+            {
+              "key": "referrer-policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "key": "x-dns-prefetch-control",
+              "value": "off"
+            },
+            {
+              "key": "x-download-options",
+              "value": "noopen"
+            },
+            {
+              "key": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "x-permitted-cross-domain-policies",
+              "value": "none"
+            },
+            {
+              "key": "x-xss-protection",
+              "value": "0"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-expose-headers",
+              "value": "X-Total-Count,Link,Location,RateLimit-Limit,RateLimit-Remaining,RateLimit-Reset,Retry-After"
+            },
+            {
+              "key": "x-total-count",
+              "value": "94"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"3e53-ePROYaFNUk/ZiypJYHaXARvqT2I\""
+            },
+            {
+              "key": "cf-cache-status",
+              "value": "DYNAMIC"
+            },
+            {
+              "key": "report-to",
+              "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=A%2B%2FnJ35gdaXgByXjMli0xN5NRWK%2Fd2pfS9wGTHCsSGEjApovS9PWLMz8A%2FRHe3kqGPWlOuRquztcDg3nHzD7qZoDvMSiwx0f8pCHZF%2FljyWJiwmO4V1FmV%2B3JI5lftmp7FggEwQ%3D\"}]}"
+            },
+            {
+              "key": "content-encoding",
+              "value": "br"
+            },
+            {
+              "key": "cf-ray",
+              "value": "a2dacbbf6abc9db9-SIN"
+            },
+            {
+              "key": "alt-svc",
+              "value": "h3=\":443\"; ma=86400"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 2,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Incredibles 2\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTEzNzY0OTg0NTdeQTJeQWpwZ15BbWU4MDU3OTg3MjUz._V1_SX300.jpg\",\n        \"imdbId\": \"tt3606756\"\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Snow White and the Seven Dwarfs\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTQwMzE2Mzc4M15BMl5BanBnXkFtZTcwMTE4NTc1Nw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0029583\"\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Zootopia\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BOTMyMjEyNzIzMV5BMl5BanBnXkFtZTgwNzIyNjU0NzE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt2948356\"\n    },\n    {\n        \"id\": 6,\n        \"title\": \"Toy Story 2\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMWM5ZDcxMTYtNTEyNS00MDRkLWI3YTItNThmMGExMWY4NDIwXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0120363\"\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Up\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTk3NDE2NzI4NF5BMl5BanBnXkFtZTgwNzE1MzEyMTE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1049413\"\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Toy Story 3\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0435761\"\n    },\n    {\n        \"id\": 9,\n        \"title\": \"Finding Nemo\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0266543\"\n    },\n    {\n        \"id\": 10,\n        \"title\": \"Finding Dory\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNzg4MjM2NDQ4MV5BMl5BanBnXkFtZTgwMzk3MTgyODE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt2277860\"\n    },\n    {\n        \"id\": 11,\n        \"title\": \"Pinocchio\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTU4Mzk3ODIyOF5BMl5BanBnXkFtZTgwODgyNzk2NjE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0032910\"\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Moana\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjI4MzU5NTExNF5BMl5BanBnXkFtZTgwNzY1MTEwMDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt3521164\"\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Toy Story\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0114709\"\n    },\n    {\n        \"id\": 14,\n        \"title\": \"Kubo and the Two Strings\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjA2Mzg2NDMzNl5BMl5BanBnXkFtZTgwMjcwODUzOTE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt4302938\"\n    },\n    {\n        \"id\": 15,\n        \"title\": \"How to Train Your Dragon\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjA5NDQyMjc2NF5BMl5BanBnXkFtZTcwMjg5ODcyMw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0892769\"\n    },\n    {\n        \"id\": 16,\n        \"title\": \"Shaun the Sheep Movie\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BOTc1ODY5MTQ1Nl5BMl5BanBnXkFtZTgwMDM5ODI1NjE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt2872750\"\n    },\n    {\n        \"id\": 17,\n        \"title\": \"Isle of Dogs\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTYyOTUwNjAxM15BMl5BanBnXkFtZTgwODcyMzE0NDM@._V1_SX300.jpg\",\n        \"imdbId\": \"tt5104604\"\n    },\n    {\n        \"id\": 18,\n        \"title\": \"Dumbo\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNWVmNWQ2OTQtNzJlNC00ZmQwLTg4ZTktZTNmM2IxZTlkOGM3L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0033563\"\n    },\n    {\n        \"id\": 19,\n        \"title\": \"WALL-E\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjExMTg5OTU0NF5BMl5BanBnXkFtZTcwMjMxMzMzMw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0910970\"\n    },\n    {\n        \"id\": 20,\n        \"title\": \"The Lego Movie\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1490017\"\n    },\n    {\n        \"id\": 21,\n        \"title\": \"Ratatouille\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0382932\"\n    },\n    {\n        \"id\": 22,\n        \"title\": \"The Incredibles\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0317705\"\n    },\n    {\n        \"id\": 23,\n        \"title\": \"Only Yesterday\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTY5NjI2MjQxMl5BMl5BanBnXkFtZTgwMDA2MzM2NzE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0102587\"\n    },\n    {\n        \"id\": 24,\n        \"title\": \"Yellow Submarine\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMGExODFmMjQtZTgxOC00ZDE0LWJmM2MtOTQzM2YzNDZlMzNmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0063823\"\n    },\n    {\n        \"id\": 25,\n        \"title\": \"Beauty and the Beast\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMzE5MDM1NDktY2I0OC00YWI5LTk2NzUtYjczNDczOWQxYjM0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0101414\"\n    },\n    {\n        \"id\": 26,\n        \"title\": \"Chicken Run\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BY2UyYjFkNzAtYzIyMC00MGI1LTlkNDktNzUyOGQ5NTI2ZGFjXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0120630\"\n    },\n    {\n        \"id\": 27,\n        \"title\": \"The Lego Batman Movie\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTcyNTEyOTY0M15BMl5BanBnXkFtZTgwOTAyNzU3MDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt4116284\"\n    },\n    {\n        \"id\": 28,\n        \"title\": \"The Nightmare Before Christmas\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0107688\"\n    },\n    {\n        \"id\": 29,\n        \"title\": \"Monsters, Inc.\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTY1NTI0ODUyOF5BMl5BanBnXkFtZTgwNTEyNjQ0MDE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0198781\"\n    },\n    {\n        \"id\": 30,\n        \"title\": \"The Iron Giant\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjIxNDU2Njk0OV5BMl5BanBnXkFtZTgwODc3Njc3NjE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0129167\"\n    },\n    {\n        \"id\": 31,\n        \"title\": \"Tower\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNjI1Nzg3NTgyOV5BMl5BanBnXkFtZTgwNzIwMjIxMDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt5116410\"\n    },\n    {\n        \"id\": 32,\n        \"title\": \"Anomalisa\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTkyMzI2MzQ1N15BMl5BanBnXkFtZTgwNDg0MzQxNzE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt2401878\"\n    },\n    {\n        \"id\": 33,\n        \"title\": \"Song of the Sea\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTQ2MDMwNjEwNV5BMl5BanBnXkFtZTgwOTkxMzI0MzE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1865505\"\n    },\n    {\n        \"id\": 34,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 35,\n        \"title\": \"Who Framed Roger Rabbit\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMDhiOTM2OTctODk3Ny00NWI4LThhZDgtNGQ4NjRiYjFkZGQzXkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0096438\"\n    },\n    {\n        \"id\": 36,\n        \"title\": \"Waltz with Bashir\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNjM2OTI3NzQyNl5BMl5BanBnXkFtZTcwNjkzNzQ5MQ@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1185616\"\n    },\n    {\n        \"id\": 37,\n        \"title\": \"Persepolis\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMGRkZThmYzEtYjQxZC00OWEzLThjYjAtYzFkMjY0NGZkZWI4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0808417\"\n    },\n    {\n        \"id\": 38,\n        \"title\": \"Wallace & Gromit: The Curse of the Were-Rabbit\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTk1NzIwNTM1NV5BMl5BanBnXkFtZTcwMDA1NzkyMw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0312004\"\n    },\n    {\n        \"id\": 39,\n        \"title\": \"Fantasia\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BYjhlYzNkOGEtZjNkZC00OTQ4LWJiMzEtMTM3YzBiM2FkMDUxXkEyXkFqcGdeQXVyNzY1NDgwNjQ@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0032455\"\n    },\n    {\n        \"id\": 40,\n        \"title\": \"Fantastic Mr. Fox\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BOGUwYTU4NGEtNDM4MS00NDRjLTkwNmQtOTkwMWMyMjhmMjdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0432283\"\n    },\n    {\n        \"id\": 41,\n        \"title\": \"Aladdin\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BY2Q2NDI1MjUtM2Q5ZS00MTFlLWJiYWEtNTZmNjQ3OGJkZDgxXkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0103639\"\n    },\n    {\n        \"id\": 42,\n        \"title\": \"Frozen\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTQ1MjQwMTE5OF5BMl5BanBnXkFtZTgwNjk3MTcyMDE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt2294629\"\n    },\n    {\n        \"id\": 43,\n        \"title\": \"How to Train Your Dragon 2\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMzMwMTAwODczN15BMl5BanBnXkFtZTgwMDk2NDA4MTE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1646971\"\n    },\n    {\n        \"id\": 44,\n        \"title\": \"The Breadwinner\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMWM2MzQ4YTAtMTBkZS00ODA1LWFmNTEtMjEwNzk3ZGJiZDc3XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg\",\n        \"imdbId\": \"tt3901826\"\n    },\n    {\n        \"id\": 45,\n        \"title\": \"Coraline\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMzQxNjM5NzkxNV5BMl5BanBnXkFtZTcwMzg5NDMwMg@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0327597\"\n    },\n    {\n        \"id\": 46,\n        \"title\": \"The Little Mermaid\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BN2JlZTBhYTEtZDE3OC00NTA3LTk5NTQtNjg5M2RjODllM2M0XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0097757\"\n    },\n    {\n        \"id\": 47,\n        \"title\": \"Lady and the Tramp\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BYTI1ZDc1OTItM2EzNS00ODMxLWIxYzctOTc5YWNiYzI3NGZiXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0048280\"\n    },\n    {\n        \"id\": 48,\n        \"title\": \"Antz\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMzMzMDdlMDktODg4OC00Y2E5LTk1ZjMtNzM2MzIxZGQ0ZGI3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0120587\"\n    },\n    {\n        \"id\": 49,\n        \"title\": \"The Triplets of Belleville\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjAzMzUxNzc5M15BMl5BanBnXkFtZTgwODc2NDE2MDE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0286244\"\n    },\n    {\n        \"id\": 50,\n        \"title\": \"Bambi\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0034492\"\n    },\n    {\n        \"id\": 51,\n        \"title\": \"My Neighbor Totoro\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNTdiOTQ0YmUtOGE3YS00NDg5LWI3YTEtNDAxZmE0MzRmZWM5L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0096283\"\n    },\n    {\n        \"id\": 52,\n        \"title\": \"Big Hero 6\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMDliOTIzNmUtOTllOC00NDU3LWFiNjYtMGM0NDc1YTMxNjYxXkEyXkFqcGdeQXVyNTM3NzExMDQ@._V1_SX300.jpg\",\n        \"imdbId\": \"tt2245084\"\n    },\n    {\n        \"id\": 53,\n        \"title\": \"Arthur Christmas\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTYyMjMyMzEzMl5BMl5BanBnXkFtZTcwMDg4NTM5Ng@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1430607\"\n    },\n    {\n        \"id\": 54,\n        \"title\": \"A Bug's Life\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNThmZGY4NzgtMTM4OC00NzNkLWEwNmEtMjdhMGY5YTc1NDE4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0120623\"\n    },\n    {\n        \"id\": 55,\n        \"title\": \"Mary and Max\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMDgzYjQwMDMtNGUzYi00MTRmLWIyMGMtNjE1OGZkNzY2YWIzL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0978762\"\n    },\n    {\n        \"id\": 56,\n        \"title\": \"Teen Titans Go! To the Movies\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BOTZhMTIwZDUtYjZjZS00MmViLTg3NzEtNWE5NzI1NDUwNDJmXkEyXkFqcGdeQXVyODQxMTI4MjM@._V1_SX300.jpg\",\n        \"imdbId\": \"tt7424200\"\n    },\n    {\n        \"id\": 57,\n        \"title\": \"Bolt\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNDQyNDE5NjQ1N15BMl5BanBnXkFtZTcwMDExMTAwMg@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0397892\"\n    },\n    {\n        \"id\": 58,\n        \"title\": \"Shrek 2\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMDJhMGRjN2QtNDUxYy00NGM3LThjNGQtMmZiZTRhNjM4YzUxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0298148\"\n    },\n    {\n        \"id\": 59,\n        \"title\": \"Tangled\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTAxNDYxMjg0MjNeQTJeQWpwZ15BbWU3MDcyNTk2OTM@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0398286\"\n    },\n    {\n        \"id\": 60,\n        \"title\": \"The Simpsons Movie\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0462538\"\n    },\n    {\n        \"id\": 61,\n        \"title\": \"James and the Giant Peach\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTNkNWIwNGUtNTJlOC00NDU3LTk0NWEtNjNjNDM4NzRiNThkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0116683\"\n    },\n    {\n        \"id\": 62,\n        \"title\": \"Shrek\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BOGZhM2FhNTItODAzNi00YjA0LWEyN2UtNjJlYWQzYzU1MDg5L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0126029\"\n    },\n    {\n        \"id\": 63,\n        \"title\": \"Frankenweenie\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BY2UwYWI3MTktM2MxNC00MjRhLTlkMWEtYTNjMjRkOTIwOTkyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1142977\"\n    },\n    {\n        \"id\": 64,\n        \"title\": \"Sleeping Beauty\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BOTJmZjA3MjMtMWNmZS00YTliLWFhMWUtZDU2NGJhNTlmY2ZkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0053285\"\n    },\n    {\n        \"id\": 65,\n        \"title\": \"Rango\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTc4NjEyODE1OV5BMl5BanBnXkFtZTcwMjYzNTkxNA@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1192628\"\n    },\n    {\n        \"id\": 66,\n        \"title\": \"Winnie the Pooh\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BYzBlYTJkMGQtYzQ4MS00Zjk3LTk4MmEtYTZiNTEzNmRlMjUxXkEyXkFqcGdeQXVyMzI0NDc4ODY@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1449283\"\n    },\n    {\n        \"id\": 67,\n        \"title\": \"ParaNorman\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjA1OTU1NDM3N15BMl5BanBnXkFtZTcwMjYxNTg0Nw@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1623288\"\n    },\n    {\n        \"id\": 68,\n        \"title\": \"The Peanuts Movie\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNTE5NzMxNzkwNl5BMl5BanBnXkFtZTgwOTQ0Nzk5NzE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt2452042\"\n    },\n    {\n        \"id\": 69,\n        \"title\": \"Kung Fu Panda\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0441773\"\n    },\n    {\n        \"id\": 70,\n        \"title\": \"Tarzan\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BY2ZiYWUxN2ItYmQxZi00NDlkLWE2NDAtOTNmYTg1MDI0NDk1XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0120855\"\n    },\n    {\n        \"id\": 71,\n        \"title\": \"Wreck-It Ralph\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNzMxNTExOTkyMF5BMl5BanBnXkFtZTcwMzEyNDc0OA@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1772341\"\n    },\n    {\n        \"id\": 72,\n        \"title\": \"Kung Fu Panda 3\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMTUyNzgxNjg2M15BMl5BanBnXkFtZTgwMTY1NDI1NjE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt2267968\"\n    },\n    {\n        \"id\": 73,\n        \"title\": \"Sausage Party\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjkxOTk1MzY4MF5BMl5BanBnXkFtZTgwODQzOTU5ODE@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1700841\"\n    },\n    {\n        \"id\": 74,\n        \"title\": \"Akira\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BM2ZiZTk1ODgtMTZkNS00NTYxLWIxZTUtNWExZGYwZTRjODViXkEyXkFqcGdeQXVyMTE2MzA3MDM@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0094625\"\n    },\n    {\n        \"id\": 75,\n        \"title\": \"Tokyo Godfathers\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BYmJmMjFiY2ItNDBkZS00MGQyLWE3ZjQtZWMzNjQ5ZTA5YjcwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0388473\"\n    },\n    {\n        \"id\": 76,\n        \"title\": \"The Pirates! Band of Misfits\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BNDhkOGZkZWMtNGI4Mi00ZWI3LTgyYTgtMDU4ZDI3NTNjMWFiXkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_SX300.jpg\",\n        \"imdbId\": \"tt1430626\"\n    },\n    {\n        \"id\": 77,\n        \"title\": \"The Princess and the Frog\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMjEyOTQ5NzAzNl5BMl5BanBnXkFtZTcwMTcyNTU1Mg@@._V1_SX300.jpg\",\n        \"imdbId\": \"tt0780521\"\n    },\n    {\n        \"id\": 78,\n        \"title\": \"Spider-Man: Across the Spider-Verse\",\n        \"imdbId\": \"tt9362722\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMzQ1NTYzODAyMV5BMl5BanBnXkFtZTcwNTE1MTM4Nw@@._V1_SX300.jpg\"\n    },\n    {\n        \"id\": 79,\n        \"title\": \"Inside Out 2\",\n        \"imdbId\": \"tt22022452\",\n        \"posterURL\": \"https://m.media-amazon.com/images/M/MV5BMzQ1NTYzODAyMV5BMl5BanBnXkFtZTcwNTE1MTM4Nw@@._V1_SX300.jpg\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"Example Movie\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt1234567\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"Example Movie\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt1234567\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion Kings\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/posters/the-lion-king.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/lion-king.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/lion-king.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": \"99999999\",\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": \"test\",\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/poster.jpg\",\n        \"imdbId\": \"tt0110357\"\n    },\n    {\n        \"id\": 1,\n        \"title\": \"The Lion King\",\n        \"posterURL\": \"https://example.com/lion-king.jpg\",\n        \"imdbId\": \"tt0110357\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Animation Movie By Id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Content-Type includes application/json', function () {",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});",
+              "",
+              "pm.test('Returned movie id is 1', function () {",
+              "    const data = pm.response.json();",
+              "    pm.expect(data.id).to.eql(1);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "inherit"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://api.sampleapis.com/movies/animation/:id",
+          "protocol": "https",
+          "host": [
+            "api",
+            "sampleapis",
+            "com"
+          ],
+          "path": [
+            "movies",
+            "animation",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Animation Movie",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"title\": \"Example Movie\",\n  \"posterURL\": \"https://example.com/poster.jpg\",\n  \"imdbId\": \"tt1234567\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.sampleapis.com/movies/animation",
+          "protocol": "https",
+          "host": [
+            "api",
+            "sampleapis",
+            "com"
+          ],
+          "path": [
+            "movies",
+            "animation"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Animation Movie",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"title\": \"Updated Movie\",\n  \"posterURL\": \"https://example.com/poster.jpg\",\n  \"imdbId\": \"tt1234567\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.sampleapis.com/movies/animation/:id",
+          "protocol": "https",
+          "host": [
+            "api",
+            "sampleapis",
+            "com"
+          ],
+          "path": [
+            "movies",
+            "animation",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Animation Movie",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200 or 204', function () {",
+              "    pm.expect([200, 204]).to.include(pm.response.code);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://api.sampleapis.com/movies/animation/:id",
+          "protocol": "https",
+          "host": [
+            "api",
+            "sampleapis",
+            "com"
+          ],
+          "path": [
+            "movies",
+            "animation",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
